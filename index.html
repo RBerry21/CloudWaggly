@@ -1,0 +1,175 @@
+<html>
+    <head>
+        <title>Wagg.ly</title>
+        <style type="text/css">
+            body{
+                background-color:white;
+                table, th, td {background-color: lightsteelblue;
+                    border: none;
+                    font-family:verdana}
+            }
+            table.center{
+                margin-left: auto;
+                margin-right: auto;
+            }
+            img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            h1{
+                font-family:verdana
+            }
+            h3{
+                font-family:verdana
+            }
+            h5{
+                font-family:verdana
+            }
+
+            td{font-size: 24px; font-family:verdana
+            }
+            .form-container{
+                display: flex;
+                flex-wrap: wrap;                
+                padding-right: 50px;                
+                padding-left: 250px;
+            }
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 75%;
+            }
+
+            </style>
+    
+    </head>
+<body>
+    <h1 style="text-align: center">Wagg.ly</h1>
+    <h3 style="text-align: center;">Uniting Dog Owners with Dog Walkers</h3>
+    <h5 style="text-align: center;">Wagg.ly connects dog owners and dog walkers within the same area. Sign up below to find connections 
+        in your area.<br /> Addresses will not be passed on, only contact details. 
+    </h5>
+<br />
+<br />
+            <div class="form-container">
+                <form id="owner_signup" name="owner_signup">
+                    <h3 class="form-h3">Dog Owners Sign up here:</h3>
+                <div class="form-group">
+                    <label for="customer_name"></label>
+                    <input type="text" id="customer_name" name="customer_name" placeholder="Enter your name" >
+                  </div>
+                  <div class="form-group">
+                    <label for="dog_name"></label>
+                    <input type="text" id="dog_name" name="dog_name" placeholder="Enter your dogs name" >
+                  </div>
+                  <div class="form-group">
+                    <label for="customer_postcode"></label>
+                    <input type="text" id="customer_postcode" name="customer_postcode" placeholder="Enter your postcode" >
+                  </div>
+                  <div class="form-group">
+                    <label for="customer_number"></label>
+                    <input type="text" id="customer_number" name="customer_number" placeholder="Enter your phone number" >
+                  </div>
+                  <div class="form-group">
+                    <label for="customer_email"></label>
+                    <input type="text" id="customer_email" name="customer_email" placeholder="Enter your email">
+                  </div>
+                </br>
+                  <div class="button-container">
+                    <button type="submit">Submit</button>
+                    <button type="reset">Clear</button>
+                  </div>
+                  </form>
+
+                  <div class="form-container">
+                    <form id="walker_form" name="walker_form" >
+                        <h3 class="form-h3">Dog Walkers Sign Up Here:</h3>
+                        <div class="form-group">
+                        <label for="walker_name"></label>
+                        <input type="text" id="walker_name" name="walker_name" placeholder="Enter your name">
+                      </div>
+                      <div class="form-group">
+                        <div class="form-group">
+                            <label for="walker_postcode"></label>
+                            <input type="text" id="walker_postcode" name="walker_postcode" placeholder="Enter your postcode" >
+                          </div>
+                          <div class="form-group">
+                            <label for="walker_number"></label>
+                            <input type="text" id="walker_number" name="walker_number" placeholder="Enter your number">
+                          </div>
+                        <label for="walker_email"></label>
+                        <input type="text" id="walker_email" name="walker_email" placeholder="Enter your email">
+                      </div>
+                    </br>
+                      <div class="button-container">
+                        <button type="submit">Submit</button>
+                        <button type="reset">Clear</button>
+                      </div>
+                    </form>
+                    </div>
+                
+
+
+        <img src="Pawprints1.png" class="center" alt="Paw prints">
+
+        <script>
+            const owner_signup = document.getElementById('owner_signup');
+            const owner_response=document.getElementById('response-text')
+            owner_signup.addEventListener('submit', (event) => {
+              event.preventDefault();
+              const customer_name = document.getElementById('customer_name').value;
+              const dog_name = document.getElementById('dog_name').value;
+              const customer_postcode = document.getElementById('customer_postcode').value;
+              const customer_number = document.getElementById('customer_number').value;
+              const customer_email = document.getElementById('customer_email').value;
+             
+              fetch("https://cloudwaggly.azurewebsites.net/api/adddog", {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ customer_name: customer_name, dog_name: dog_name, customer_postcode: customer_postcode, customer_number: customer_number, customer_email: customer_email})
+              })
+              .then(owner_signup.reset())
+              .then(response => response.text())
+              .then(data => {
+                owner_response.textContent = `${data}`;
+              })
+              .catch(error => {
+                owner_response.textContent = `${error.message}`;
+              });
+            });
+          </script>
+          <script>
+            const walker_form = document.getElementById('walker_form');
+            const walker_response=document.getElementById('response-text')
+            walker_form.addEventListener('submit', (event) => {
+              event.preventDefault();
+              const walker_name = document.getElementById('walker_name').value;
+              const walker_postcode = document.getElementById('walker_postcode').value;
+              const walker_number = document.getElementById('walker_number').value;
+              const walker_email = document.getElementById('walker_email').value;
+            
+              fetch("https://cloudwaggly.azurewebsites.net/api/addwalker", {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ walker_name: walker_name, walker_postcode: walker_postcode, walker_number: walker_number, walker_email })
+              })
+              .then(walker_form.reset())
+              .then(response => response.text())
+              .then(data => {
+                walker_response.textContent = `${data}`;
+              })
+              .catch(error => {
+                walker_response.textContent = `${error.message}`;
+              });
+            });
+          </script>
+
+</body>
+
+</html>
