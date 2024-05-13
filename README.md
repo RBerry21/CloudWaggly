@@ -4,11 +4,9 @@ Wagg.ly is a small start up company that aim to help dog owners identify dog wal
 
 # HTML Front End
 Firstly the HTML Website was created. This was built in Visual Studio.
-Firstly a new file was created by
-
-The HTML was then written to add the title, forms and buttons on screen for the user to interact with. The inputs to the form were given unique names so once the user presses save, these could later be matched to the SQL database, and function. 
-
-The HTML Document and the image Pawprints must be saved in the same file at all times for the image to display correctly. 
+Firstly a new file was created by going to File -> New File and typing index.html in the file name. This is then saved within a working file for Wagg.ly.
+The HTML was then written to add the title, forms and buttons on screen for the user to interact with. The inputs to the form were given unique names so once the user presses submit, these could later be matched to the names within the SQL database, and functions. 
+An image was also added of dog pawprints. The HTML Document and the image Pawprints must be saved in the same file at all times for the image to display correctly. 
 
 # SQL Database
 The SQL Database was created using the Azure platform. 
