@@ -39,3 +39,10 @@ The functions were created in Visual Studio. \
 
 # Azure Static App 
 An Azure static app was used to create the website. This was set up within the Azure portal. 
+ - Create a git hub resposity
+ - Within the index.html update API links with the function Urls Copied earlier.
+ - Within Azure go to Create a resource and static web app.
+ - The Appl location must point tpwards the root reposity (/)
+ - Once created...
+
+ - ADD MORE HERE
