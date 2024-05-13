@@ -21,7 +21,21 @@ https://github.com/RBerry21/CloudWaggly/blob/main/SQL/sqlquery.sql
 - Also, whilst in the database navigate to Settings - > Connection strings and copy the conenction string called 'ADO.NET (SQL Authentication' Paste this in to word, and replace the {your_password} with the password used to access the database. Keep this to conenct to the database later. 
 
 # Functions
-The functions were created in Visual Studio. 
+The functions were created in Visual Studio. \ 
+ - The following things are required to do this:
+   -  Visual Studio Code
+   -  Python
+   - Phthon Extension for VS Code
+   - Azure Function Extension for VS Code
+- Open Visual Studio Code, and go to the Azure Extension on the left hand menu and sign in to Azure.
+- Within the Azure window on visual studio code, go to workspace and then press the + icon. Select Create new Project.
+- CHECK THIS BIT
+- Within the "function_app.py" file, copy in the Function code:
+- Within the Resources Section of the Azure window, select "Create a Resource" then "Crate function app in azure." CHECK THIS BIT. 
+- Right click on the function app IN WHERE? and select "Deploy to Function App"
+- Right click on the function app and select "Application Settings", Then "Add New Setting". Call it SQLConnectionString.
+- Copy over the connection string from the database that was saved earlier.
+- Finally right click on each function and select "Copy Function Url" paste these in to word as they will be required later. 
 
 # Azure Static App 
 An Azure static app was used to create the website. This was set up within the Azure portal. 
