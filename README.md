@@ -1,5 +1,5 @@
 # Waggl.y
-Wagg.ly is a small start up company that aim to help dog owners identify dog walkers in their area. They currently do not yet secured mobile development funding, therefore this is a prototype for the website. This will be cloud based, and allow both dog owners, and dog walkers to add their details to the Waggl.y Database, so they can be connected later. \
+Wagg.ly is a small start up company that aim to help dog owners identify dog walkers in their area. They currently have not yet secured mobile development funding, therefore this is a prototype for the website. This will be cloud based, and allow both dog owners, and dog walkers to add their details to the Waggl.y Database, so they can be connected later. \
 This repository holds all the documents required for the prototype, and below are instructions on how it was created. 
 
 
@@ -26,7 +26,7 @@ The functions were created in Visual Studio.
  - The following things are required to do this:
    -  Visual Studio Code
    -  Python
-   - Phthon Extension for VS Code
+   - Phyhon Extension for VS Code
    - Azure Function Extension for VS Code
 - Open Visual Studio Code, and go to the Azure Extension on the left hand menu and sign in to Azure.
 - Within the Azure window on visual studio code, go to workspace and then press the Azure Functions icon. Select Create new Project.
